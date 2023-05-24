@@ -1,9 +1,25 @@
 {{> header}}
 
 <main class="container my-5 pt-5">
-    <h1>{{home.title}}</h1>
-    <h2>{{home.subtitle}}</h2>
-    <p>{{home.description}}</p>
+    <div class="row">
+        <div class="col-12">
+            <h1>{{home.title}}</h1>
+            <h2>{{home.subtitle}}</h2>
+            <p>{{home.description}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-center">
+                <div>
+                    <a class="btn btn-primary" href={{details.url}}>{{details.link}}</a>
+                    <a class="btn btn-primary" href={{tools.url}}>{{tools.link}}</a>
+                    <a class="btn btn-primary" href={{developer.url}}>{{developer.link}}</a>
+                    <a class="btn btn-primary" href={{contact.url}}>{{contact.link}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
 {{> footer}}

@@ -3,9 +3,9 @@ Ciclo 1 - Site de apresentação (valor: 30%)
 Neste primeiro ciclo, cada projeto deverá atender aos seguintes requisitos e realizar as
 seguintes atividades:
 
-● Definir um nome (e um logo) para o sistema
+X Definir um nome (e um logo) para o sistema
 X Criar um repositório na plataforma GitHub
-● Definir um template e padrão visual para o site (cabeçalho e rodapé)
+X Definir um template e padrão visual para o site (cabeçalho e rodapé)
 X Criar um arquivo para conter as configurações da aplicação web como senhas e
 os parâmetros necessários para o funcionamento da aplicação web (pesquisar
 sobre dotenv)
@@ -25,13 +25,13 @@ nome, e-mail, assunto e mensagem (pesquisar sobre como enviar emails)
 X Para o desenvolvimento do projeto deverá ser obrigatoriamente utilizado o framework
 Express.js. 
 
-Os demais pacotes e recursos empregados são de livre escolha de cada
+X Os demais pacotes e recursos empregados são de livre escolha de cada
 desenvolvedor. Neste ciclo, não deverá ser criado uma API para separação entre
 back-end e front-end, de tal forma, que o contéudo e os dados deverão ser
 disponibilizados em um único servidor. Todavia, é permitido o uso de um framework
 front-end como o React, Vue ou Angular, desde que integrados em um único projeto.
 
-Com relação ao conteúdo das páginas de conteúdo, tecnologia e sobre, estes
+X Com relação ao conteúdo das páginas de conteúdo, tecnologia e sobre, estes
 deverão estar armazenados em arquivos de texto ou template, para que seja possível
 alterá-los sem a necessidade de manipular o código fonte do site.
 

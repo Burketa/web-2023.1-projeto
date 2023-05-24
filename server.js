@@ -18,20 +18,30 @@ app.set("views", path.join(__dirname, "src/views"))
 app.set("view engine", "mustache")
 
 //Rotas
-app.get("/", (req, res) => {
+app.get(content.home.url, (req, res) => {
     return res.render(content.home.page, content)
 })
-app.get("/details", (req, res) => {
+app.get(content.details.url, (req, res) => {
     return res.render(content.details.page, content)
 })
-app.get("/tools", (req, res) => {
+app.get(content.tools.url, (req, res) => {
     return res.render(content.tools.page, content)
 })
-app.get("/developer", (req, res) => {
+app.get(content.developer.url, (req, res) => {
     return res.render(content.developer.page, content)
 })
-app.get("/contact", (req, res) => {
+app.get(content.contact.url, (req, res) => {
     return res.render(content.contact.page, content)
+})
+
+//Erro 404 - Página não encontrada
+app.use(function (req, res, next) {
+    res.status(404).render("404.mustache", content)
+});
+
+//Testes
+app.get("/test", (req, res) => {
+    return res.render("test.mustache", content)
 })
 
 //Bora servir :P

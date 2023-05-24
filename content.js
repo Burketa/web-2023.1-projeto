@@ -5,6 +5,7 @@ module.exports = {
         title: "Fantasypedia"
     },
     home: {
+        url: "/",
         page: "home.mustache",
         link: "Home",
         title: "Titulo do site",
@@ -12,6 +13,7 @@ module.exports = {
         description: "Mesagem do site"
     },
     details: {
+        url: "/details",
         page: "details.mustache",
         link: "Descrição",
         title: "Descrição",
@@ -19,6 +21,7 @@ module.exports = {
         description: "Mesagem Descrição"
     },
     tools: {
+        url: "/tools",
         page: "tools.mustache",
         link: "Ferramentas",
         title: "Ferramentas",
@@ -26,6 +29,7 @@ module.exports = {
         description: "Mesagem Ferramentas"
     },
     developer: {
+        url: "/developer",
         page: "developer.mustache",
         link: "Desenvolvedor",
         title: "Desenvolvedor",
@@ -33,6 +37,7 @@ module.exports = {
         description: "Mesagem Desenvolvedor"
     },
     contact: {
+        url: "/contact",
         page: "contact.mustache",
         link: "Contato",
         title: "Contato",
