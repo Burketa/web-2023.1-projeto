@@ -41,8 +41,8 @@ erros apropriadas devem ser apresentadas ao usuário.
 
 
 5 paginas:
-home - descricao
-descricao - detalhada
-ferramentas - utilizadas
-desenvolvedor - descrever
-contato - mandar email
+(home) home - descricao
+(details) descricao - detalhada
+(tools) ferramentas - utilizadas
+(developer) desenvolvedor - descrever
+(contact) contato - mandar email

@@ -1,21 +1,42 @@
 
 module.exports = {
+    app: {
+        name: "Fantasypedia",
+        title: "Fantasypedia"
+    },
     home: {
+        page: "home.mustache",
         link: "Home",
         title: "Titulo do site",
         subtitle: "Subtitulo do site",
-        message: "Mesagem do site"
+        description: "Mesagem do site"
     },
-    description: {
-        link: "Descrição"
+    details: {
+        page: "details.mustache",
+        link: "Descrição",
+        title: "Descrição",
+        subtitle: "Subtitulo Descrição",
+        description: "Mesagem Descrição"
     },
     tools: {
-        link: "Ferramentas"
+        page: "tools.mustache",
+        link: "Ferramentas",
+        title: "Ferramentas",
+        subtitle: "Subtitulo Ferramentas",
+        description: "Mesagem Ferramentas"
     },
     developer: {
-        link: "Desenvolvedor"
+        page: "developer.mustache",
+        link: "Desenvolvedor",
+        title: "Desenvolvedor",
+        subtitle: "Subtitulo Desenvolvedor",
+        description: "Mesagem Desenvolvedor"
     },
     contact: {
-        link: "Contato"
+        page: "contact.mustache",
+        link: "Contato",
+        title: "Contato",
+        subtitle: "Subtitulo Contato",
+        description: "Mesagem Contato"
     }
 }
