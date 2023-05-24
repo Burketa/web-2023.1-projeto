@@ -19,29 +19,30 @@ app.set("view engine", "mustache")
 
 //Rotas
 app.get(content.home.url, (req, res) => {
-    return res.render(content.home.page, content)
+    const renderContent = { ...content, renderHome: true }
+    return res.render(content.app.defaultPage, renderContent)
 })
 app.get(content.details.url, (req, res) => {
-    return res.render(content.details.page, content)
+    const renderContent = { ...content, renderDetails: true }
+    return res.render(content.app.defaultPage, renderContent)
 })
 app.get(content.tools.url, (req, res) => {
-    return res.render(content.tools.page, content)
+    const renderContent = { ...content, renderTools: true }
+    return res.render(content.app.defaultPage, renderContent)
 })
 app.get(content.developer.url, (req, res) => {
-    return res.render(content.developer.page, content)
+    const renderContent = { ...content, renderDeveloper: true }
+    return res.render(content.app.defaultPage, renderContent)
 })
 app.get(content.contact.url, (req, res) => {
-    return res.render(content.contact.page, content)
-})
-
-//Testes
-app.get("/test", (req, res) => {
-    return res.render("test.mustache", content)
+    const renderContent = { ...content, renderContact: true }
+    return res.render(content.app.defaultPage, renderContent)
 })
 
 //Erro 404 - Página não encontrada
 app.use(function (req, res, next) {
-    res.status(404).render("404.mustache", content)
+    const renderContent = { ...content, render404: true }
+    return res.render(content.app.defaultPage, renderContent)
 });
 
 //Bora servir :P
