@@ -34,15 +34,15 @@ app.get(content.contact.url, (req, res) => {
     return res.render(content.contact.page, content)
 })
 
-//Erro 404 - Página não encontrada
-app.use(function (req, res, next) {
-    res.status(404).render("404.mustache", content)
-});
-
 //Testes
 app.get("/test", (req, res) => {
     return res.render("test.mustache", content)
 })
+
+//Erro 404 - Página não encontrada
+app.use(function (req, res, next) {
+    res.status(404).render("404.mustache", content)
+});
 
 //Bora servir :P
 app.listen(process.env.PORT || 3000)
