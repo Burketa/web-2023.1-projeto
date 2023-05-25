@@ -1,3 +1,27 @@
 <div class="row">
     <h1>{{contact.title}}</h1>
+    <form id="emailForm" method="POST" action="/send-email">
+        <div class="mt-5 mb-3">
+            <label for="name" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+            <div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="subject" class="form-label">Assunto</label>
+            <input type="text" class="form-control" id="subject" name="subject" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="message" class="form-label">Mensagem</label>
+            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100 mt-2">Enviar</button>
+    </form>
 </div>

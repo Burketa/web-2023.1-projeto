@@ -33,7 +33,33 @@ module.exports = {
         page: "tools.mustache",
         link: "Ferramentas",
         title: "Ferramentas",
-        subtitle: "Subtitulo Ferramentas",
+        subtitle: "As bibliotecas utilizadas no projeto foram as seguintes:",
+        features: [
+            {
+                name: "bootstrap",
+                url: "https://www.npmjs.com/package/bootstrap"
+            },
+            {
+                name: "dotenv",
+                url: "https://www.npmjs.com/package/dotenv"
+            },
+            {
+                name: "express",
+                url: "https://www.npmjs.com/package/express"
+            },
+            {
+                name: "mustache-express",
+                url: "https://www.npmjs.com/package/mustache-express"
+            },
+            {
+                name: "nodemon",
+                url: "https://www.npmjs.com/package/nodemon"
+            },
+            {
+                name: "nodemailer",
+                url: "https://www.npmjs.com/package/nodemailer"
+            }
+        ],
         description: "Mesagem Ferramentas"
     },
     developer: {
@@ -41,8 +67,10 @@ module.exports = {
         page: "developer.mustache",
         link: "Desenvolvedor",
         title: "Desenvolvedor",
-        subtitle: "Subtitulo Desenvolvedor",
-        description: "Mesagem Desenvolvedor"
+        subtitle: "",
+        description: `No RG meu nome é Rogério Pelizzon, mas ta errado, na verdade é <b>burca</b> :) <br/>
+        Estou cursando engenharia de software e trabalhando a alguns anos ja com desenvolvimento mobile.<br/>
+        Atualmente trabalho como Analista de Produtos Digitais/Desenvolvedor Android no <a href="https://www.bancointer.com.br/">Banco Inter</a>`
     },
     contact: {
         url: "/contact",

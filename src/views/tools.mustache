@@ -1,3 +1,12 @@
 <div class="row">
     <h1>{{tools.title}}</h1>
+    <!--<h2 class="my-3">{{tools.subtitle}}</h2>-->
+    <p class="mt-5 mb-3">{{tools.subtitle}}</p>
+    {{#tools}}
+    <ul class="my-3">
+        {{#features}}
+        <li><a href={{{url}}}>{{{name}}}</a></li>
+        {{/features}}
+    </ul>
+    {{/tools}}
 </div>
