@@ -12,8 +12,9 @@ module.exports = {
         link: "Home",
         title: "Projeto Web2",
         subtitle: "Gerenciador de Assets para RPG",
-        description: `Esse site será um gerenciador de assets de RPG.<br/>
-        Cadastre seus personagens, itens e criaturas para usá-los facilmente em suas campanhas!`
+        description: `Desbrave um universo de possibilidades com o nosso gerenciador de assets de RPG!<br/>
+        Cadastre seus personagens, itens e criaturas e leve suas campanhas a um novo patamar.<br/>
+        Explore conteúdos incríveis criados por outros jogadores e contribua para a comunidade, mergulhando em aventuras épicas como nunca antes.`
     },
     details: {
         url: "/details",
