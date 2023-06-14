@@ -80,5 +80,21 @@ module.exports = {
         title: "Contato",
         subtitle: "Subtitulo Contato",
         description: "Mesagem Contato"
+    },
+    items: {
+        url: "/items",
+        page: "items.mustache",
+        link: "Itens",
+        title: "Itens",
+        subtitle: "Subtitulo Itens",
+        description: "Mesagem Itens"
+    },
+    creatures: {
+        url: "/creatures",
+        page: "creatures.mustache",
+        link: "Criaturas",
+        title: "Criaturas",
+        subtitle: "Subtitulo Creatures",
+        description: "Mesagem Creatures"
     }
 }
