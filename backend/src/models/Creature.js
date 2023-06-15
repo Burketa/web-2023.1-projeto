@@ -2,15 +2,19 @@ const mongoose = require("mongoose")
 const mongoosePaginate = require("mongoose-paginate")
 
 const CreatureSchema = new mongoose.Schema({
+  imageUrl: {
+    type: String,
+    required: false
+  },
   name: {
     type: String,
     required: false
   },
-  life: {
+  description: {
     type: String,
     required: false
   },
-  attack: {
+  createdBy: {
     type: String,
     required: false
   }

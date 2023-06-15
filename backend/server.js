@@ -2,16 +2,22 @@
 require("dotenv/config")
 
 //Importações de Modelos
-require("./src/models/Character")
+require("./src/models/User")
 require("./src/models/Item")
 require("./src/models/Creature")
 
 //App
 const express = require('express')
+const cors = require('cors')
+const bodyParser = require('body-parser')
+const cookieParser = require("cookie-parser")
 const app = express()
-const bodyParser = require('body-parser');
+
+//Middlewares
 app.use(express.json())
+app.use(cookieParser())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cors())
 
 //BD
 const mongoose = require("mongoose")

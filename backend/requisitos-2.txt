@@ -1,36 +1,37 @@
 Ciclo 2 - Sistema (valor: 40% back-end e 30% front-end)
 
-Nesta segunda etapa do projeto, o objetivo é criar o sistema dinâmico integrado com
+X Nesta segunda etapa do projeto, o objetivo é criar o sistema dinâmico integrado com
 um banco de dados (relacional ou NoSQL), por meio de uma API web (back-end) e um
 cliente web (front-web) que irá consumir a API desenvolvida.
 
-Como requisito principal, o sistema deve permitr a realização de pelo menos 3
+X Como requisito principal, o sistema deve permitr a realização de pelo menos 3
 cadastros (operações de CRUD completa), tal que, estes itens apresentem entre si um
 relacionamento de um-para-muitos ou muitos-para-muitos, de acordo com a livre
 escolha de cada aluno. 
 
-Um destes cadastros deve ser do usuário, e as demais
-operações de inserção, alteração e exclusão devem ser restritas para o usuário
+X Um destes cadastros deve ser do usuário, 
+
+e as demaisoperações de inserção, alteração e exclusão devem ser restritas para o usuário
 autenticado no sistema. 
 
-As operações de listar e buscar pelo identificador único são
+X As operações de listar e buscar pelo identificador único são
 permitidos também para os usuários não logados no sistema. De acordo com o tema
 proposto.
 
-Neste ciclo, será necessário fazer com que o front-end da aplicação consuma a API
-desenvolvida. 
+X Neste ciclo, será necessário fazer com que o front-end da aplicação consuma a API
+desenvolvida.
 
-E realize a validação dos dados fornecidos pelo usuário, além de realizar
+- E realize a validação dos dados fornecidos pelo usuário, além de realizar
 o tratamento dos erros e mensagens geradas pela API.
 
-Neste cenário, será permitido criar uma aplicação diferente para o front-end da aplicação,
+X Neste cenário, será permitido criar uma aplicação diferente para o front-end da aplicação,
 desde que a mesma seja adequadamente integrada com a solução desenvolvida no primeiro ciclo.
 
-Com relação a API desenvolvida, a mesma também deverá realizar a validação dos
+- Com relação a API desenvolvida, a mesma também deverá realizar a validação dos
 campos, considerando que os dados podem vir de uma fonte diferente do cliente
 desenvolvido. 
 
-Além disso, mensagens de erros e sucessos deverão ser enviados
+X- Além disso, mensagens de erros e sucessos deverão ser enviados
 juntamente com as respostas. Os métodos HTTP GET, POST, PUT e DELETE devem
 ser empregados de acordo com a operação a ser executada. Quanto ao banco de
 dados, será de livre escolha de cada aluno, podendo ser um banco de dados relacional

@@ -8,12 +8,18 @@ const content = require("./content.js")
 const express = require("express")
 const axios = require('axios');
 const nodemailer = require('nodemailer')
+const session = require("express-session")
 const app = express()
 const path = require('path')
 app.use(express.json())
 app.use("/public", express.static('public'))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }))
+app.use(session({
+    secret: process.env.SESSION_HASH,
+    resave: false,
+    saveUninitialized: true
+}))
 
 //Mustache
 const mustacheExpress = require("mustache-express")
@@ -58,8 +64,10 @@ app.get(content.items.url, async (req, res) => {
     console.log(renderContent)
     return res.render(content.app.defaultPage, renderContent)
 })
-app.get(content.creatures.url, (req, res) => {
-    const renderContent = { ...content, renderCreatures: true }
+app.get(content.creatures.url, async (req, res) => {
+    const { query } = req.query
+    const data = await fetchCreatures(query)
+    const renderContent = { ...content, renderCreatures: true, data: data.docs }
     return res.render(content.app.defaultPage, renderContent)
 })
 
@@ -70,6 +78,16 @@ async function fetchItems(query) {
         const response = await axios.get(url)
         const items = response.data
         return items
+    } catch (error) {
+        console.error('Error fetching items:', error.message)
+    }
+}
+async function fetchCreatures(query) {
+    try {
+        const url = `http://localhost:3001/api/creatures${query ? `?query=${query}` : ''}`
+        const response = await axios.get(url)
+        const creatures = response.data
+        return creatures
     } catch (error) {
         console.error('Error fetching items:', error.message)
     }

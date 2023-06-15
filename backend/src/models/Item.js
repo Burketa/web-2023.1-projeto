@@ -13,6 +13,10 @@ const ItemSchema = new mongoose.Schema({
   description: {
     type: String,
     required: false
+  },
+  createdBy: {
+    type: String,
+    required: false
   }
 })
 

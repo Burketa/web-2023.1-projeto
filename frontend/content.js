@@ -86,15 +86,17 @@ module.exports = {
         page: "items.mustache",
         link: "Itens",
         title: "Itens",
-        subtitle: "Subtitulo Itens",
-        description: "Mesagem Itens"
+        subtitle: "Deposite um item",
+        description: "Baú",
+        buttonAdd: "Depositar"
     },
     creatures: {
         url: "/creatures",
         page: "creatures.mustache",
         link: "Criaturas",
         title: "Criaturas",
-        subtitle: "Subtitulo Creatures",
-        description: "Mesagem Creatures"
+        subtitle: "Invoque uma criatura",
+        description: "Bestiário",
+        buttonAdd: "Invocar"
     }
 }
