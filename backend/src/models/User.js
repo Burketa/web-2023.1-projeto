@@ -4,15 +4,15 @@ const mongoosePaginate = require("mongoose-paginate")
 const UserSchema = new mongoose.Schema({
   user: {
     type: String,
-    required: false
+    required: true
   },
   pass: {
     type: String,
-    required: false
+    required: true
   },
   name: {
     type: String,
-    required: false
+    required: true
   }
 })
 

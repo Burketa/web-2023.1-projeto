@@ -4,15 +4,15 @@ const mongoosePaginate = require("mongoose-paginate")
 const CreatureSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
-    required: false
+    required: true
   },
   name: {
     type: String,
-    required: false
+    required: true
   },
   description: {
     type: String,
-    required: false
+    required: true
   },
   createdBy: {
     type: String,
