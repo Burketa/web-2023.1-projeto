@@ -47,10 +47,15 @@ module.exports = {
   },
 
   async create(req, res) {
-    const item = await Item.create(req.body)
+    try {
+      const item = await Item.create(req.body)
 
-    logResponse(item)
-    return res.json(item)
+      logResponse(item)
+      return res.json(item)
+    }
+    catch (err) {
+      res.status(500).json({ error: "dados invalidos" })
+    }
   },
 
   async read(req, res) {

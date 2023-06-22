@@ -4,7 +4,7 @@ const mongoosePaginate = require("mongoose-paginate")
 const ItemSchema = new mongoose.Schema({
   imageUrl: {
     type: String,
-    required: false
+    required: true
   },
   name: {
     type: String,

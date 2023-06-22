@@ -10,14 +10,6 @@ window.addEventListener("load", function () {
         console.log(formData)
         addItem(formData)
     })
-
-    /* const formSearch = document.getElementById("form-search")
-    formSearch.addEventListener("submit", (event) => {
-        event.preventDefault()
-
-        const formData = new FormData(formSearch)
-        searchItem(formData)
-    }) */
 })
 
 function addItem(formData) {
@@ -33,21 +25,6 @@ function addItem(formData) {
             console.error("Error:", error)
         })
 }
-
-function searchItem(formData) {
-    const data = Object.fromEntries(formData.entries())
-    console.log("form:", data)
-
-    axios.get(`${ap}/item/${data.id}`)
-        .then((response) => {
-            console.log("Response:", response.data)
-            reloadPage()
-        })
-        .catch((error) => {
-            console.error("Error:", error)
-        })
-}
-
 
 function reloadPage() {
     window.location.reload()

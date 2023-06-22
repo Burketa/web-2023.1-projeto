@@ -2,7 +2,6 @@ const api = "http://localhost:3001/api"
 
 window.addEventListener("load", function () {
     const formAdd = document.getElementById("form-add")
-    console.log(formAdd)
     formAdd.addEventListener("submit", (event) => {
         event.preventDefault()
 

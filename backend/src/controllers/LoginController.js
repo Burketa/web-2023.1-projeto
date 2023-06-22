@@ -7,14 +7,6 @@ module.exports = {
     const user = await User.findOne({ user: req.body.user })
     if (!user) return res.json("Usuário nao encontrado")
 
-    console.log("USER")
-    console.log(user)
-
-    /* console.log("req pass -> " + req.body.pass)
-    console.log("user pass -> " + user.pass)
-    if (req.body.pass == user.pass) console.log("deu bom")
-    else console.log("deu ruim") */
-
     logResponse(user)
     return res.json(user)
   },
