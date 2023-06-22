@@ -17,6 +17,11 @@ const CreatureSchema = new mongoose.Schema({
   createdBy: {
     type: String,
     required: false
+  },
+  weight: {
+    type: Number,
+    min: [0.1, 'Peso deve ser maior que 0'],
+    required: true
   }
 })
 

@@ -60,9 +60,15 @@ app.get(content.items.url, async (req, res) => {
 })
 app.get(content.creatures.url, async (req, res) => {
     const { query } = req.query
+    console.log(query)
     const data = await fetchCreatures(query)
-    const renderContent = { ...content, renderCreatures: true, data: data.docs }
-    return res.render(content.app.defaultPage, renderContent)
+    if (data.docs) {
+        const renderContent = { ...content, renderCreatures: true, data: data.docs }
+        return res.render(content.app.defaultPage, renderContent)
+    }
+    else {
+        return res.render('badrequest', renderContent)
+    }
 })
 
 //Funções fetch
