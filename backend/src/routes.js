@@ -9,24 +9,15 @@ const routes = express.Router()
 const UserController = require("./controllers/UserController")
 const ItemController = require("./controllers/ItemController")
 const CreatureController = require("./controllers/CreatureController")
+const LoginController = require("./controllers/LoginController")
 
 //Middleware para logar os requests
 routes.use(middlwares.logRequest)
 
 //Rotas
 //Login
-routes.post("/login", (req, res) => {
-    let response = ""
-    const isLoginValid = req.body.user == "teste" && req.body.pass == "teste"
-
-    if (isLoginValid) {
-        const token = jwt.sign({ id: req.body.user }, process.env.JWT_PRIVATE_KEY, { expiresIn: "1 min" })
-        console.log("token -> ", token)
-        response = { token: token }
-    }
-
-    return res.json(response)
-})
+routes.post("/login", LoginController.login)
+routes.post("/register", LoginController.register)
 
 //CRUDS
 routes.get("/users", UserController.showAll)
@@ -34,6 +25,7 @@ routes.post("/user", UserController.create)
 routes.get("/user/:id", UserController.read)
 routes.put("/user/:id", UserController.update)
 routes.delete("/user/:id", UserController.delete)
+routes.delete("/users", UserController.deleteAll)
 
 routes.get("/items", ItemController.showAll)
 routes.post("/item", ItemController.create)
