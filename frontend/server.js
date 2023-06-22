@@ -8,18 +8,12 @@ const content = require("./content.js")
 const express = require("express")
 const axios = require('axios')
 const nodemailer = require('nodemailer')
-const session = require("express-session")
 const app = express()
 const path = require('path')
 app.use(express.json())
 app.use("/public", express.static('public'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
-app.use(session({
-    secret: process.env.SESSION_HASH,
-    resave: false,
-    saveUninitialized: true
-}))
 
 //Mustache
 const mustacheExpress = require("mustache-express")
@@ -118,7 +112,7 @@ app.post('/send-email', (req, res) => {
 })
 
 //Erro 404 - Página não encontrada
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
     const renderContent = { ...content, render404: true }
     return res.render(content.app.defaultPage, renderContent)
 })

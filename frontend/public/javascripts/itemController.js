@@ -2,12 +2,10 @@ const api = "http://localhost:3001/api"
 
 window.addEventListener("load", function () {
     const formAdd = document.getElementById("form-add")
-    console.log(formAdd)
     formAdd.addEventListener("submit", (event) => {
         event.preventDefault()
 
         const formData = new FormData(formAdd)
-        console.log(formData)
         addItem(formData)
     })
 })
@@ -16,7 +14,9 @@ function addItem(formData) {
     const data = Object.fromEntries(formData.entries())
     console.log("form:", data)
 
-    axios.post(`${api}/item`, data)
+    axios.post(`${api}/item`, data, {
+        headers: { Authorization: `Bearer ${sessionStorage.getItem("jwt")}` }
+    })
         .then((response) => {
             console.log("Response:", response.data)
             reloadPage()

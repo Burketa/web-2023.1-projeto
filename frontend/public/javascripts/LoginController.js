@@ -9,21 +9,21 @@ window.addEventListener("load", async function () {
         const data = Object.fromEntries(formData.entries())
         console.log(data)
 
-
         console.log("checando")
-        if (await isUserValid(data)) {
-            console.log("existe")
-            doLogin(data)
-        }
+        return await checkUser(data)
     })
 })
 
-async function isUserValid(data) {
+async function checkUser(data) {
     return await axios.post(`${api}/login`, data)
         .then((response) => {
-            console.log("Response:", response.data)
-            console.log(response.data.pass == data.pass)
-            return response.data.pass == data.pass
+            console.log(response.data)
+            const token = response.data.token
+            if (token) {
+                doLogin(data)
+                return true
+            }
+            return false
         })
         .catch((error) => {
             console.error("Error:", error)
@@ -33,6 +33,8 @@ async function isUserValid(data) {
 
 function doLogin(data) {
     console.log("logado")
+    sessionStorage.setItem("jwt", data.token)
+    sessionStorage.setItem("name", data.name)
 }
 
 function reloadPage() {

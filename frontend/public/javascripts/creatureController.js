@@ -6,7 +6,6 @@ window.addEventListener("load", function () {
         event.preventDefault()
 
         const formData = new FormData(formAdd)
-        console.log(formData)
         addCreature(formData)
     })
 })
@@ -15,12 +14,15 @@ function addCreature(formData) {
     const data = Object.fromEntries(formData.entries())
     console.log("form:", data)
 
-    axios.post(`${api}/creature`, data)
+    axios.post(`${api}/creature`, data, {
+        headers: { Authorization: `Bearer ${sessionStorage.getItem("jwt")}` }
+    })
         .then((response) => {
             console.log("Response:", response.data)
             reloadPage()
         })
         .catch((error) => {
+            console.log("Opa, algo deu errado com a sua request")
             console.error("Error:", error)
         })
 }
