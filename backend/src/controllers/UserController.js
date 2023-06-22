@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 const User = mongoose.model("User")
 
+
 const defaultUsers = [
   {
     user: "user1",
@@ -31,50 +32,80 @@ const defaultUsers = [
 
 module.exports = {
   async showAll(req, res) {
-    await checkIfDocsAreEmpty()
+    try {
+      await checkIfDocsAreEmpty()
 
-    const user = await User.find()
+      const user = await User.find()
 
-    logResponse(user)
-    return res.json(user)
+      logResponse(user)
+      return res.json(user)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async create(req, res) {
-    const user = await User.create(req.body)
+    try {
+      const user = await User.create(req.body)
 
-    logResponse(user)
-    return res.json(user)
+      logResponse(user)
+      return res.json(user)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async read(req, res) {
-    const user = await User.findById(req.params.id)
+    try {
+      const user = await User.findById(req.params.id)
 
-    logResponse(user)
-    return res.json(user)
+      logResponse(user)
+      return res.json(user)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async update(req, res) {
-    const user = await User.findByIdAndUpdate(
-      req.params.id,
-      req.body, { new: true }
-    )
+    try {
+      const user = await User.findByIdAndUpdate(
+        req.params.id,
+        req.body, { new: true }
+      )
 
-    logResponse(user)
-    return res.json(user)
+      logResponse(user)
+      return res.json(user)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async delete(req, res) {
-    const user = await User.findByIdAndRemove(req.params.id)
+    try {
+      const user = await User.findByIdAndRemove(req.params.id)
 
-    logResponse(user)
-    return res.send(user)
+      logResponse(user)
+      return res.send(user)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async deleteAll(req, res) {
-    const user = await User.deleteMany()
+    try {
+      const user = await User.deleteMany()
 
-    logResponse(user)
-    return res.send(user)
+      logResponse(user)
+      return res.send(user)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   }
 }
 

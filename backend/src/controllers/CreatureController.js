@@ -1,6 +1,8 @@
 const mongoose = require("mongoose")
 const Creature = mongoose.model("Creature")
 
+const errorMessage = "Algo deu errado"
+
 const defaultCreatures = [
   {
     name: "Rato Mutante 1",
@@ -36,51 +38,83 @@ const defaultCreatures = [
 
 module.exports = {
   async showAll(req, res) {
-    await checkIfDocsAreEmpty()
+    try {
+      await checkIfDocsAreEmpty()
 
-    const { page = 1 } = req.query
-    const creature = await Creature.paginate({}, { page, limit: 10 })
+      const { page = 1 } = req.query
+      const creature = await Creature.paginate({}, { page, limit: 10 })
 
-    logResponse(creature)
-    return res.json(creature)
+      logResponse(creature)
+      return res.json(creature)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async create(req, res) {
-    const creature = await Creature.create(req.body)
+    try {
+      const creature = await Creature.create(req.body)
 
-    logResponse(creature)
-    return res.json(creature)
+      logResponse(creature)
+      return res.json(creature)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async read(req, res) {
-    const creature = await Creature.findById(req.params.id)
+    try {
+      const creature = await Creature.findById(req.params.id)
 
-    logResponse(creature)
-    return res.json(creature)
+      logResponse(creature)
+      return res.json(creature)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async update(req, res) {
-    const creature = await Creature.findByIdAndUpdate(
-      req.params.id,
-      req.body, { new: true }
-    )
+    try {
 
-    logResponse(creature)
-    return res.json(creature)
+
+      const creature = await Creature.findByIdAndUpdate(
+        req.params.id,
+        req.body, { new: true }
+      )
+
+      logResponse(creature)
+      return res.json(creature)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async delete(req, res) {
-    const creature = await Creature.findByIdAndRemove(req.params.id)
+    try {
+      const creature = await Creature.findByIdAndRemove(req.params.id)
 
-    logResponse(creature)
-    return res.send(creature)
+      logResponse(creature)
+      return res.send(creature)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async deleteAll(req, res) {
-    const creature = await Creature.deleteMany()
+    try {
+      const creature = await Creature.deleteMany()
 
-    logResponse(creature)
-    return res.send(creature)
+      logResponse(creature)
+      return res.send(creature)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   }
 }
 

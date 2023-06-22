@@ -22,9 +22,11 @@ function addItem(formData) {
             reloadPage()
         })
         .catch((error) => {
+            console.log("Opa, algo deu errado com a sua request")
             console.error("Error:", error)
         })
 }
+
 
 function reloadPage() {
     window.location.reload()

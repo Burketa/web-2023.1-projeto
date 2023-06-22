@@ -2,6 +2,8 @@ const mongoose = require("mongoose")
 const Item = mongoose.model("Item")
 const jwt = require("jsonwebtoken")
 
+const errorMessage = "Algo deu errado"
+
 const defaultItems = [
   {
     name: "Espada",
@@ -54,39 +56,56 @@ module.exports = {
       return res.json(item)
     }
     catch (err) {
-      res.status(500).json({ error: "dados invalidos" })
+      return res.status(500).json({ msg: errorMessage, error: err })
     }
   },
 
   async read(req, res) {
-    const item = await Item.findById(req.params.id)
+    try {
+      const item = await Item.findById(req.params.id)
 
-    logResponse(item)
-    return res.json(item)
+      logResponse(item)
+      return res.json(item)
+    }
+    catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async update(req, res) {
-    const item = await Item.findByIdAndUpdate(
-      req.params.id,
-      req.body, { new: true }
-    )
+    try {
+      const item = await Item.findByIdAndUpdate(
+        req.params.id,
+        req.body, { new: true }
+      )
 
-    logResponse(item)
-    return res.json(item)
+      logResponse(item)
+      return res.json(item)
+    } catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async delete(req, res) {
-    const item = await Item.findByIdAndRemove(req.params.id)
+    try {
+      const item = await Item.findByIdAndRemove(req.params.id)
 
-    logResponse(item)
-    return res.send(item)
+      logResponse(item)
+      return res.send(item)
+    } catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   },
 
   async deleteAll(req, res) {
-    const item = await Item.deleteMany()
+    try {
+      const item = await Item.deleteMany()
 
-    logResponse(item)
-    return res.send(item)
+      logResponse(item)
+      return res.send(item)
+    } catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   }
 }
 
