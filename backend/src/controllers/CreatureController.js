@@ -78,8 +78,6 @@ module.exports = {
 
   async update(req, res) {
     try {
-
-
       const creature = await Creature.findByIdAndUpdate(
         req.params.id,
         req.body, { new: true }

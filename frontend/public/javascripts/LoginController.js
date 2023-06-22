@@ -13,12 +13,7 @@ window.addEventListener("load", async function () {
         console.log("checando")
         if (await isUserValid(data)) {
             console.log("existe")
-            //login()
-        }
-        else {
-            console.log("nao existe")
-            createUser(data)
-            reloadPage()
+            doLogin(data)
         }
     })
 })
@@ -27,8 +22,6 @@ async function isUserValid(data) {
     return await axios.post(`${api}/login`, data)
         .then((response) => {
             console.log("Response:", response.data)
-            console.log("response -> " + response.data.pass)
-            console.log("pass -> " + data.pass)
             console.log(response.data.pass == data.pass)
             return response.data.pass == data.pass
         })
@@ -42,19 +35,6 @@ function doLogin(data) {
     console.log("logado")
 }
 
-async function createUser(data) {
-    console.log("criando")
-    console.log(data)
-    return await axios.post(`${api}/login`, data)
-        .then((response) => {
-            console.log("Response:", response.data)
-            reloadPage()
-        })
-        .catch((error) => {
-            console.error("Error:", error)
-        })
-}
-
 function reloadPage() {
-    //window.location.reload()
+    window.location.reload()
 }

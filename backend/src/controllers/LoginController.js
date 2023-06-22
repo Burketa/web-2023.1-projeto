@@ -1,26 +1,21 @@
 const mongoose = require("mongoose")
+const UserController = require("./UserController")
 const User = mongoose.model("User")
 
 module.exports = {
   async login(req, res) {
     console.log("logando")
-    const user = await User.findOne({ user: req.body.user })
-    if (!user) return res.json("Usuário nao encontrado")
+    try {
+      const user = await User.findOne({ user: req.body.user })
 
-    logResponse(user)
-    return res.json(user)
-  },
+      if (!user) return res.json("Usuário nao encontrado")
+      if (req.body.pass != user.pass) return res.json("senha incorreta")
 
-  async register(req, res) {
-    console.log("registando")
-    const user = await User.find({ user: req.params.user })
-    console.log(user)
-
-    if (req.params.pass == user.pass) console.log("deu bom")
-    else console.log("deu ruim")
-
-    logResponse(user)
-    return res.json(user)
+      logResponse(user)
+      return res.json(user)
+    } catch (err) {
+      return res.status(500).json({ msg: errorMessage, error: err })
+    }
   }
 }
 

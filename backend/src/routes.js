@@ -17,7 +17,6 @@ routes.use(middlwares.logRequest)
 //Rotas
 //Login
 routes.post("/login", LoginController.login)
-routes.post("/register", LoginController.register)
 
 //CRUDS
 routes.get("/users", UserController.showAll)
