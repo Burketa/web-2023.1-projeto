@@ -12,11 +12,11 @@ module.exports = {
       const tokenValue = token.split(' ')[1]
 
       jwt.verify(tokenValue, process.env.JWT_PRIVATE_KEY, (err, decoded) => {
-        if (err) return res.status(401).json({ message: 'Sem autorização :(' })
+        if (err) return res.status(403).json({ message: 'Sem autorização :(' })
         next()
       })
     } catch (err) {
-      return res.status(401).json({ message: 'Verifique se o token esta sendo mandado certo' })
+      return res.status(403).json({ message: 'Verifique se o token esta sendo mandado certo' })
     }
   }
 }

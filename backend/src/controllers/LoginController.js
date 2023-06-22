@@ -13,7 +13,7 @@ module.exports = {
       if (req.body.pass != user.pass) return res.json("senha incorreta")
 
       logResponse(user)
-      const token = jwt.sign({ id: user }, process.env.JWT_PRIVATE_KEY, { expiresIn: "10 min" })
+      const token = jwt.sign({ id: user }, process.env.JWT_PRIVATE_KEY, { expiresIn: "1 day" })
       console.log("token -> ", token)
       return res.json({ token: token })
     } catch (err) {
