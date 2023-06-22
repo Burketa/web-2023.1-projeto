@@ -20,25 +20,25 @@ routes.post("/login", LoginController.login)
 
 //CRUDS
 routes.get("/users", UserController.showAll)
-routes.post("/user", UserController.create)
+routes.post("/user", middlwares.validateJwt, UserController.create)
 routes.get("/user/:id", UserController.read)
-routes.put("/user/:id", UserController.update)
-routes.delete("/user/:id", UserController.delete)
-routes.delete("/users", UserController.deleteAll)
+routes.put("/user/:id", middlwares.validateJwt, UserController.update)
+routes.delete("/user/:id", middlwares.validateJwt, UserController.delete)
+routes.delete("/users", middlwares.validateJwt, UserController.deleteAll)
 
 routes.get("/items", ItemController.showAll)
-routes.post("/item", ItemController.create)
+routes.post("/item", middlwares.validateJwt, ItemController.create)
 routes.get("/item/:id", ItemController.read)
-routes.put("/item/:id", ItemController.update)
-routes.delete("/item/:id", ItemController.delete)
-routes.delete("/items", ItemController.deleteAll)
+routes.put("/item/:id", middlwares.validateJwt, ItemController.update)
+routes.delete("/item/:id", middlwares.validateJwt, ItemController.delete)
+routes.delete("/items", middlwares.validateJwt, ItemController.deleteAll)
 
 routes.get("/creatures", CreatureController.showAll)
-routes.post("/creature", CreatureController.create)
+routes.post("/creature", middlwares.validateJwt, CreatureController.create)
 routes.get("/creature/:id", CreatureController.read)
-routes.put("/creature/:id", CreatureController.update)
-routes.delete("/creature/:id", CreatureController.delete)
-routes.delete("/creatures", CreatureController.deleteAll)
+routes.put("/creature/:id", middlwares.validateJwt, CreatureController.update)
+routes.delete("/creature/:id", middlwares.validateJwt, CreatureController.delete)
+routes.delete("/creatures", middlwares.validateJwt, CreatureController.deleteAll)
 
 //Exportando as rotas para serem usadas no server.js
 module.exports = routes

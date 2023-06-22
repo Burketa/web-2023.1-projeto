@@ -6,14 +6,14 @@ const content = require("./content.js")
 
 //App
 const express = require("express")
-const axios = require('axios');
+const axios = require('axios')
 const nodemailer = require('nodemailer')
 const session = require("express-session")
 const app = express()
 const path = require('path')
 app.use(express.json())
 app.use("/public", express.static('public'))
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({ extended: true }))
 app.use(session({
     secret: process.env.SESSION_HASH,
@@ -110,7 +110,7 @@ app.post('/send-email', (req, res) => {
             renderContent.renderEmailFailure = true
             return res.status(500).render(content.app.defaultPage, renderContent)
         } else {
-            console.log('E-mail enviado: ' + info.response);
+            console.log('E-mail enviado: ' + info.response)
             renderContent.renderEmailSuccess = true
             return res.render(content.app.defaultPage, renderContent)
         }

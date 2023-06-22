@@ -1,6 +1,5 @@
 const mongoose = require("mongoose")
 const Item = mongoose.model("Item")
-const jwt = require("jsonwebtoken")
 
 const errorMessage = "Algo deu errado"
 
